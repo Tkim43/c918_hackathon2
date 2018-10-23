@@ -120,10 +120,9 @@ function initMap() {
             }
         ]
     });
-    // Generate icon
     var icon = {
         url: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
-        scaledSize: new google.maps.Size(50,50)
+        scaledSize: new google.maps.Size(60,60)
     };
     // creates a marker
     var marker = new google.maps.Marker({
