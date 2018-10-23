@@ -19,35 +19,14 @@ body{
     font-size: 2rem;
     text-align: center;
 }
-.beers{
-    display:flex;
-    justify-content: space-evenly;
-
+.nav{
+    height: 10%;
+    width: 100%;
+    text-align: center;
 }
-.stoutDiv{
+.checkbox{
     display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.aleDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.lagerDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.maltDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.nonAlcoholicDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
+    text-align: center;
 }
 .submitDiv{
     border: 1px black solid;

@@ -18,35 +18,30 @@
     <body>
 
     <div class="topHalf1">
-
         <div class="imgDiv1 ">
-
                 <div class="titleDiv">
                     Beer Roulette
                 </div>
-            <div class="beers">
-                <div class="stoutDiv ">
-
-                    Stout
+                <div class="nav">
+                    <form id="beerSelector">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="stouts" class="stouts">Stouts</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="ales" class="ales">Ales</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="lagers" class="lagers">Lagers</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="malts" class="malts">Malts</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="nonAlcs" class="nonAlcs">Non-Alcoholics</label>
+                        </div>
+                        <input type="submit" value="Randomize" class="randomizeButton">
+                    </form>
                 </div>
-                <div class="aleDiv ">
-                    Ale
-                </div>
-                <div class="lagerDiv">
-                    Lager
-                </div>
-                <div class="maltDiv ">
-                    Malt
-                </div>
-                <div class="nonAlcoholicDiv ">
-                    Non-Alcoholic
-                </div>
-            </div>
-            <div class="row">
-                <div class="submitDiv ">
-                Submit
-                </div>
-            </div>
             <div id="map"></div>
     </div>
     </div>
