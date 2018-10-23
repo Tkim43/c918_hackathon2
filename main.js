@@ -42,3 +42,37 @@ function initMap() {
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({position: uluru, map: map});
 }
+
+var placesAPIData = null;
+
+function placesAPI(randomBeer){
+    var theData = {
+        api_key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
+        input: "Neustadt Springs Brewery",
+        // randomBeer.brewer,
+        inputtype: "textquery",
+        fields: "photos,formatted_address,name,rating,opening_hours,geometry",
+  }
+    var placesAPIinput = {
+    dataType: "jsonp",
+    url: "https://maps.googleapis.com/maps/api/place/findplacefromtext/json",
+    method: "GET",
+    headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "07970600-9129-42cc-80f5-b78366aa63ea",
+      },
+    async: true,
+    crossDomain: true,
+    error: err => console.log(err),
+    data: theData,
+        success: function(response){
+            globalData = response;
+            var latCoord = placesAPIData.lat
+            var lngCoord = placesAPIData.lng
+            console.log("latitude: "+ latCoord);
+            console.log("longtitude: "+ lngCoord)
+            findOnMap();
+        },
+    }
+    $.ajax(placesAPIinput);
+}
