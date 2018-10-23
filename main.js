@@ -1,8 +1,71 @@
-$(document).ready(initializeApp());
+$(document).ready(initializeApp);
+
 function initializeApp(){
     youtubeAPI();
-    // initMap();
+    clickHandlers();
+    organizeBeerDatabase();
 }
+
+//**   Globals
+var lagers=[];
+var stouts=[];
+var ales=[];
+var malts=[];
+var nonAlcs=[];
+var randomBeer;
+var b;
+
+
+function clickHandlers(){
+    $('#beerSelector').submit(beerSelectorCheckbox);
+}
+
+function beerSelectorCheckbox(event){
+    event.preventDefault();
+    var beerSelected=[];
+    $("input:checked").each(function(index, element) {
+        beerSelected = beerSelected.concat($(this).val());
+    });
+    randomlySelectBeer(beerSelected);
+}
+
+function randomlySelectBeer( beerArray ){
+    randomize = Math.floor(Math.random() * beerArray.length); 
+    randomBeer = beerArray[randomize];
+    }
+
+//**  Beer Roulette APIs   
+function organizeBeerDatabase(){
+    var beerDataBase = {
+        dataType: 'json',
+        "url": "https://danielpaschal.com/lfzproxies/ontariobeerproxy.php",
+        "method": "GET",
+        success: (beerList)=>{
+            for(var i=0; i<beerList.length;i++){
+                if (beerList[i].type === 'Lager'){
+                    lagers.push(beerList[i]);
+                } else if (beerList[i].type === 'Ale'){
+                    ales.push(beerList[i]);
+                } else if (beerList[i].type === 'Malt'){
+                    malts.push(beerList[i]);
+                } else if (beerList[i].type === 'Stout'){
+                    stouts.push(beerList[i]);
+                } else if (beerList[i].type === 'Non-Alcoholic Beer'){
+                    nonAlcs.push(beerList[i]);
+                }
+            }
+        },
+        error: err => {
+            console.log("error", err);  
+            err.onRejected=()=>console.log('rejected');
+            err.onFulfilled= ()=>console.log('fulfilled');
+            err.onProgress=()=>console.log('progress')
+        }
+    }
+
+    $.ajax(beerDataBase);
+}
+
 function youtubeAPI(){
     // add beer to whatever the name of the beer is
     var youtubeAjaxObject = {
@@ -29,6 +92,7 @@ function youtubeAPI(){
     $.ajax(youtubeAjaxObject);
     console.log(youtubeAjaxObject);
 }
+
 function playExactVideo(vidID){
     $('#player').attr('src','http://www.youtube.com/embed/' + vidID);
 }
