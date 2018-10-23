@@ -54,3 +54,11 @@ body{
     font-size: 2rem;
     text-align: center;
 }
+.bottomHalf{
+    height: 50%;
+    width: 100%;
+}
+.wikipedia{
+    font-size: 2rem;
+
+}
