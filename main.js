@@ -3,6 +3,7 @@ function initializeApp(){
     youtubeAPI();
 }
 function youtubeAPI(){
+    // add beer to whatever the name of the beer is
     var youtubeAjaxObject = {
         'dataType': 'json',
         'url': 'https://www.googleapis.com/youtube/v3/search',
@@ -28,14 +29,5 @@ function youtubeAPI(){
     console.log(youtubeAjaxObject);
 }
 function playExactVideo(vidID){
-    var source = $('iframe').attr('src');
-    var sourceLength = source.length;
-    var index = source.lastIndexOf("/");
-    var afterLastSlash = sourceLength - index;
-    var sourceArray = source.split('');
-    // replacing the last portion of the source with the video ID
-    var newVidID = sourceArray.splice(index+1, afterLastSlash,vidID);
-    var vidIDString = newVidID.join('');
-    console.log(vidIDString);
-    $('iframe').attr('src','http://www.youtube.com/embed/' + vidIDString);
+    $('iframe').attr('src','http://www.youtube.com/embed/' + vidID);
 }
