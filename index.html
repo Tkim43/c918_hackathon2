@@ -10,6 +10,9 @@
         <script src="main.js">
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<script async defer-->
+                <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts&callback=initMap">-->
+        <!--</script>-->
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -44,6 +47,8 @@
                 Submit
                 </div>
             </div>
+            <div id="map"></div>
+    </div>
     </div>
     <div class="bottomHalf">
 
@@ -52,7 +57,17 @@
             frameborder="0"></iframe>
 
     </div>
-
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="googleMap"></div>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts&callback=initMap">
+    </script>
 
 
     </body>
