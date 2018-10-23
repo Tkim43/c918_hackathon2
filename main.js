@@ -14,6 +14,7 @@ var ales=[];
 var malts=[];
 var nonAlcs=[];
 var randomBeer;
+var b;
 
 
 function clickHandlers(){
