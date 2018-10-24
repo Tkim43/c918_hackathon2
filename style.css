@@ -56,3 +56,19 @@ body{
     width: 20%;
     height: 100%;
 }
+
+/** Modals **/
+.beerModal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    background-image: url("images/triangle.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .7;
+}
+.hide{
+    display: none;
+    z-index: -2;
+}
