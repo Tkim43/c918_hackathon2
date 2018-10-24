@@ -270,11 +270,6 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
 }
 
 
-var practiceBeer = "blue moon";
-
-findingDescription(`${practiceBeer} beer`, "lager");     //// CALLING FUNCTION FOR PRACTICE
-
-
 function placesAPI(){
     var theData = {
         key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
