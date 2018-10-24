@@ -66,7 +66,7 @@ function organizeBeerDatabase(){
             err.onFulfilled= ()=>console.log('fulfilled');
             err.onProgress=()=>console.log('progress')
         }
-    }
+    };
 
     $.ajax(beerDataBase);
 }
