@@ -37,6 +37,11 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
+    findingDescription();
+    youtubeAPI(randomBeer.name);
+    placesAPI();
+    
+
 }
 
 //**  Beer Roulette APIs   
@@ -287,6 +292,7 @@ function placesAPI(randomBeer){
             var placesAPIData = response;
             var latCoord = placesAPIData.candidates[0].geometry.location.lat
             var lngCoord =  placesAPIData.candidates[0].geometry.location.lng
+            
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord)
             // findOnMap();
