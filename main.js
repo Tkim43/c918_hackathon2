@@ -22,6 +22,7 @@ function clickHandlers(){
 }
 
 function beerSelectorCheckbox(event){
+    console.log("SUPPPP");
     event.preventDefault();
     var beerSelected=[];
     $("input:checked").each(function(index, element) {
