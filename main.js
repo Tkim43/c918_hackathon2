@@ -36,6 +36,7 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
+
     findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
     youtubeAPI(randomBeer.name);
     placesAPI();
@@ -289,10 +290,9 @@ function placesAPI(){
     error: err => console.log(err),
     data: theData,
         success: function(response){
-            var placesAPIData = response;
-
-            var latCoord = placesAPIData.candidates[0].geometry.location.lat;
-            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng;
+            console.log(response);
+            var latCoord = response.candidates[0].geometry.location.lat;
+            var lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord);
             // I need to call my function here after you get the lat and long
