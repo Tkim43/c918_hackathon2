@@ -315,4 +315,3 @@ function placesAPI(){
     };
     $.ajax(placesAPIinput);
 }
-
