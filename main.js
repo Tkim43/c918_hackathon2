@@ -281,13 +281,14 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
     if (!param1 || randomBeer.brewer === "Brick" || randomBeer.brewer === "Bavaria"){                       ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
        param2 = `${param2}2`;               ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
         var errorRenderingFromTypesBeer = typesBeer[param2];
-       $('.wikipedia').addClass('displayingNone');
-       $('.encaseOfNoWiki').text(`${randomBeer.name} is a ${randomBeer.type} originally from ${randomBeer.country}. ${randomBeer.name} is brewed at ${randomBeer.brewer}. This beer has an alcohol percentage of ${randomBeer.abv}. MORE INFO:                        ${errorRenderingFromTypesBeer}`)
+
+       $('.encaseOfNoWiki').text(`${randomBeer.name} is a ${randomBeer.type} originally from ${randomBeer.country}. ${randomBeer.name} is brewed at ${randomBeer.brewer}. This beer has an alcohol percentage of ${randomBeer.abv}.`);
+        $('.wikipedia').text(`MORE INFO: ${errorRenderingFromTypesBeer}`);
    }
 
    else{
        $('.wikipedia').text(param1);
-        $('.wikipedia').removeClass('displayingNone');
+        $('.encaseOfNoWiki').addClass('displayingNone');
 
    }
 
