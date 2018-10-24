@@ -74,7 +74,6 @@ function organizeBeerDatabase(){
 }
 
 function youtubeAPI(name){
-    // add beer to whatever the name of the beer is
     var youtubeAjaxObject = {
         'dataType': 'json',
         'url': 'https://www.googleapis.com/youtube/v3/search',
@@ -93,7 +92,6 @@ function youtubeAPI(name){
 
     function getData(responseData){
         var video = responseData.items[0].id.videoId;
-        console.log(video);
         playExactVideo(video);
     }
     $.ajax(youtubeAjaxObject);
@@ -104,7 +102,6 @@ function playExactVideo(vidID){
     $('#player').attr('src','http://www.youtube.com/embed/' + vidID);
 }
 
-// Initialize and add the map
 function initMap(lati, longi) {
     // making the map night mode
     var maps = new google.maps.Map(document.getElementById('googleMap'), {
@@ -195,7 +192,6 @@ function initMap(lati, longi) {
         url: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
         scaledSize: new google.maps.Size(60,60)
     };
-    // creates a marker
     var marker = new google.maps.Marker({
         position: {lat: lati, lng: longi},
         map: maps,
@@ -289,7 +285,6 @@ function placesAPI(){
             var lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord);
-            // I need to call my function here after you get the lat and long
             initMap(latCoord, lngCoord);
         },
     };
