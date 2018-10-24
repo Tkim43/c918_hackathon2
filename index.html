@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Beer Roulette</title>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="main.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Domine|Lobster|Oxygen|Charmonman" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="beerModal"></div>
+    <div class="topHalf1">
+        <div class="imgDiv1 ">
+                <div class="titleDiv">
+                    Beer Roulette
+                </div>
+                <div class="nav">
+                    <form id="beerSelector">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="stouts" class="stouts">Stouts</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="ales" class="ales">Ales</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="lagers" class="lagers">Lagers</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="malts" class="malts">Malts</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="nonAlcs" class="nonAlcs">Non-Alcoholics</label>
+                        </div>
+                        <input type="submit" value="Randomize" class="randomizeButton btn btn-default btn-lg">
+                    </form>
+
+                </div>
+            <div id="map"></div>
+    </div>
+    </div>
+<div class="bottomHalf">
+ <div class="wikipedia">
+
+            </div>
+            <iframe id="player" type="text/html" width="640" height="390"
+                src=""
+                frameborder="0"></iframe>
+
+           
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="googleMap"></div>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts">
+    </script>
+    </div>
+    </body>
+</html>
