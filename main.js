@@ -57,13 +57,14 @@ function settings(parameter, short_name){
         },
         success: function( response ){
             var data = Object.values(response.query.pages)[0].extract;
-            if (short_name == "ale" || "stout" || "lager" || "malt" || "non-alcohol") {
+            if (short_name === "ale2" || short_name === "stout2" || short_name === "lager2" ||  short_name ==="malt2" || short_name === "non-alcohol2") {
                 typesBeer[short_name] = data;
+
             }
             else{
+                console.log('HIIIIIIIIIII!!!!!!')
 
-
-                renderingDescriptionOnDom(data);
+                renderingDescriptionOnDom(data, short_name);
             }
 
         }
@@ -71,23 +72,35 @@ function settings(parameter, short_name){
     $.ajax(ajaxConfig);
 }
 function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN AN OBJECT SO WE CAN USE THEM FOR ERROR HANDLING
-    settings("ale beer", "ale");
-    settings("stout beer", "stout");
-    settings("lager beer", "lager");
-    settings("malt beer", "malt");
-    settings("Non-alcoholic drink", "non-alcohol");
+    settings("ale beer", "ale2");
+    settings("stout beer", "stout2");
+    settings("lager beer", "lager2");
+    settings("malt beer", "malt2");
+    settings("Non-alcoholic drink", "non-alcohol2");
 }
 
 callingStoreTypesOfBeer(); ////GETTING THOSE BEERS IN THAT ARRAY FOR ERROR HANDLING
 
 console.log('hi', typesBeer);
 
-function findingDescription(parameterRender) ///PARAM TAKES NAME OF BEER AND PASSES TO THE SETTINGS FUNCTION
+function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE SETTINGS FUNCTION
 {
-    settings(parameterRender);
+    settings(parameterRender1, parameterRender2);
 }
-function renderingDescriptionOnDom(thedata){ ///PARAM IS THE DESCRIPTION(FROM WIKI) WE GOT FROM SETTINGS FUNCTION, RENDERS IT TO DOM
-    $('.wikipedia').text(thedata);
-}
+function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION(FROM WIKI) WE GOT FROM SETTINGS FUNCTION, PARAM2 IS ONE OF 5 BEERS, DEFAULT IF NO DESCRIPTION FROM WIKIPEDIA
+    if (param1.length > 100){
+        $('.wikipedia').text(param1);
+    }
+    else{
+        param2 = `${param2}2`; ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
+        var errorRenderingFromTypesBeer = typesBeer[param2];
+        $('.wikipedia').text(errorRenderingFromTypesBeer);
+    }
 
-findingDescription("Blue Moon") //// CALLING FUNCTION FOR PRACTICE
+
+
+}
+var practiceBeer = "Blue Moon"
+console.log(`${practiceBeer} beer`);
+
+findingDescription(`${practiceBeer} beer`, "ale") //// CALLING FUNCTION FOR PRACTICE
