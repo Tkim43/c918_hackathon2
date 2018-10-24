@@ -36,7 +36,7 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
-    findingDescription();
+    findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
     youtubeAPI(randomBeer.name);
     placesAPI();
 }
@@ -250,7 +250,7 @@ function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN
 }
 
 callingStoreTypesOfBeer(); ////GETTING THOSE BEERS IN THAT ARRAY FOR ERROR HANDLING
-console.log(typesBeer);
+
 function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE wikipediaApiSummary FUNCTION
 {
     wikipediaApiSummary(parameterRender1, parameterRender2);
@@ -268,14 +268,6 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
 
 }
 
-var practiceBeer = "sol";
-
-findingDescription(`${practiceBeer} beer`, "Lager"); //// CALLING FUNCTION FOR PRACTICE
-
-var practiceBeer = "blue moon";
-
-findingDescription(`${practiceBeer} beer`, "lager");     //// CALLING FUNCTION FOR PRACTICE
-
 
 function placesAPI(){
     var theData = {
@@ -292,10 +284,9 @@ function placesAPI(){
     error: err => console.log(err),
     data: theData,
         success: function(response){
-            var placesAPIData = response;
-
-            var latCoord = placesAPIData.candidates[0].geometry.location.lat;
-            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng;
+            console.log(response);
+            var latCoord = response.candidates[0].geometry.location.lat;
+            var lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord);
             // I need to call my function here after you get the lat and long
