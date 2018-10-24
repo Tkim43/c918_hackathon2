@@ -18,6 +18,7 @@ var randomBeer;
 
 function clickHandlers(){
     $('#beerSelector').submit(beerSelectorCheckbox);
+    $('#closebtn').click(hideModal);
 }
 
 function beerSelectorCheckbox(event){
