@@ -20,6 +20,23 @@ body{
     position: relative;
     top: 10%;
 }
+.border{
+    height: 10px;
+    width: 10px;
+    background-color: darkgoldenrod;
+    animation-name: lineGrow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes lineGrow {
+0% {
+    width: 10px;
+}
+100% {
+    width: 100%;
+}
+}
 .checkbox{
     font-family: 'Rock Salt', cursive;
     font-size: 3.7vmin;
