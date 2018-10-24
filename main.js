@@ -7,13 +7,14 @@ function initializeApp(){
 }
 
 //**   Globals
-var lagers=[];
-var stouts=[];
-var ales=[];
-var malts=[];
-var nonAlcs=[];
+var beer = {
+    ales: [],
+    lagers: [],
+    malts: [],
+    stouts: [],
+    nonAlcs: []
+}
 var randomBeer;
-var b;
 
 
 function clickHandlers(){
@@ -24,15 +25,19 @@ function beerSelectorCheckbox(event){
     event.preventDefault();
     var beerSelected=[];
     $("input:checked").each(function(index, element) {
-        beerSelected = beerSelected.concat($(this).val());
+        var currentBeerSelection = $(this).val();
+        beerSelected.push(currentBeerSelection);
     });
+
     randomlySelectBeer(beerSelected);
 }
 
 function randomlySelectBeer( beerArray ){
-    randomize = Math.floor(Math.random() * beerArray.length); 
-    randomBeer = beerArray[randomize];
-    }
+    var randomBeerType = Math.floor(Math.random() * beerArray.length);
+    var beerType= beerArray[randomBeerType];
+    var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
+    randomBeer = beer[beerType][randomBeerIndex];
+}
 
 //**  Beer Roulette APIs   
 function organizeBeerDatabase(){
@@ -43,15 +48,15 @@ function organizeBeerDatabase(){
         success: (beerList)=>{
             for(var i=0; i<beerList.length;i++){
                 if (beerList[i].type === 'Lager'){
-                    lagers.push(beerList[i]);
+                    beer.lagers.push(beerList[i]);
                 } else if (beerList[i].type === 'Ale'){
-                    ales.push(beerList[i]);
+                    beer.ales.push(beerList[i]);
                 } else if (beerList[i].type === 'Malt'){
-                    malts.push(beerList[i]);
+                    beer.malts.push(beerList[i]);
                 } else if (beerList[i].type === 'Stout'){
-                    stouts.push(beerList[i]);
+                    beer.stouts.push(beerList[i]);
                 } else if (beerList[i].type === 'Non-Alcoholic Beer'){
-                    nonAlcs.push(beerList[i]);
+                    beer.nonAlcs.push(beerList[i]);
                 }
             }
         },
