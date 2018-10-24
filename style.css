@@ -5,6 +5,7 @@ body{
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     color: white;
 }
 .topHalf1{
@@ -62,11 +63,25 @@ body{
     position: absolute;
     height: 100%;
     width: 100%;
+    z-index: 3;
+    background-image: url("images/triangle.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    filter: blur(10px);
+}
+.infoModal{
+    position: absolute;
+    height: 100%;
+    width: 70%;
     z-index: 4;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: .7;
+    background-position: center;
+    left: 15%;
+    text-align: center;
 }
 .hide{
     display: none;
