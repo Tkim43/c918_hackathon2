@@ -48,9 +48,29 @@ body{
     position: relative;
     top: 4%;
 }
+.youtubeDiv{
+    display: inline-block;
+    position: relative;
+}
 #googleMap {
     height: 70%;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
+}
+#closebtn{
+    position: absolute;
+    height: 4%;
+    width: 4%;
+    top: 3%;
+    right: 3%;
+    background-image: url(images/closebtn.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+#closebtn:hover{
+    transform: scale(1.2);
 }
 .randomizeButton{
     width: 20%;
@@ -71,7 +91,7 @@ body{
 }
 .infoModal{
     position: absolute;
-    height: 130%;
+    height: 100%;
     width: 70%;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
