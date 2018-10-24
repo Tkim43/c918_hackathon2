@@ -176,9 +176,10 @@
 
 .youtubeDiv{
     display: inline-block;
-    position: relative;
+    position: absolute;
+    top: 58%;
+    left: 4%;
 }
-
 #googleMap {
     height: 50%;  
     width: 50%;  
