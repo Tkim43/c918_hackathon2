@@ -1,7 +1,6 @@
 $(document).ready(initializeApp);
 
 function initializeApp(){
-    youtubeAPI();
     clickHandlers();
     organizeBeerDatabase();
 }
@@ -40,8 +39,6 @@ function randomlySelectBeer( beerArray ){
     findingDescription();
     youtubeAPI(randomBeer.name);
     placesAPI();
-    
-
 }
 
 //**  Beer Roulette APIs   
@@ -76,7 +73,7 @@ function organizeBeerDatabase(){
     $.ajax(beerDataBase);
 }
 
-function youtubeAPI(){
+function youtubeAPI(name){
     // add beer to whatever the name of the beer is
     var youtubeAjaxObject = {
         'dataType': 'json',
@@ -88,7 +85,7 @@ function youtubeAPI(){
         'data': {
             'part': 'snippet',
             'maxResults': '1',
-            'q': 'beer review',
+            'q': name + 'beer review',
             'type': 'video',
             'key': 'AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts'
         }
@@ -108,10 +105,10 @@ function playExactVideo(vidID){
 }
 
 // Initialize and add the map
-function initMap() {
+function initMap(lati, longi) {
     // making the map night mode
     var maps = new google.maps.Map(document.getElementById('googleMap'), {
-        center: {lat: 44.0748579, lng: -81.00349039999999},
+        center: {lat: lati, lng: longi},
         zoom: 12,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -200,7 +197,7 @@ function initMap() {
     };
     // creates a marker
     var marker = new google.maps.Marker({
-        position: {lat: 44.0748579, lng: -81.00349039999999},
+        position: {lat: lati, lng: longi},
         map: maps,
         icon: icon
     });
@@ -300,8 +297,9 @@ function placesAPI(randomBeer){
             var latCoord = placesAPIData.candidates[0].geometry.location.lat;
             var lngCoord =  placesAPIData.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
-            console.log("longtitude: "+ lngCoord)
-            // findOnMap();
+            console.log("longtitude: "+ lngCoord);
+            // I need to call my function here after you get the lat and long
+            initMap(latCoord, lngCoord);
         },
     };
     $.ajax(placesAPIinput);
