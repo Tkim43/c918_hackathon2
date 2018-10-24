@@ -277,10 +277,10 @@ var practiceBeer = "blue moon";
 findingDescription(`${practiceBeer} beer`, "lager");     //// CALLING FUNCTION FOR PRACTICE
 
 
-function placesAPI(randomBeer){
+function placesAPI(){
     var theData = {
         key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
-        input: "Neustadt Springs Brewery",
+        input: randomBeer.brewer,
         // randomBeer.brewer,
         inputtype: "textquery",
         fields: "photos,formatted_address,name,rating,opening_hours,geometry",
