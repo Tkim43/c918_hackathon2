@@ -38,8 +38,8 @@ body{
     width: 30%;
     height: 50%;
     position: relative;
-    left: 37%;
-    top: 10%;
+    left: 35%;
+    top: 13%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -52,7 +52,6 @@ body{
 
 .checkbox label:hover input  ~ .checkmark {
     background-color: #ccc;
-
 }
 
 .checkbox label input:checked ~ .checkmark {
@@ -70,8 +69,8 @@ body{
 }
 
 .checkbox label .checkmark:after {
-    left: 9px;
-    top: 5px;
+    left: 8px;
+    top: 30px;
     width: 5px;
     height: 10px;
     border: solid white;
@@ -89,7 +88,7 @@ body{
     width: 0;
     top: 50%;
     left: 50%;
-    opacity: 1;
+    opacity: 0;
 }
 
 .checkmark {
