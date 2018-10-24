@@ -36,17 +36,9 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
-<<<<<<< HEAD
-    // findingDescription();
-    // youtubeAPI(randomBeer.name);
-    // placesAPI();
-    
-
-=======
-    findingDescription();
+    findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
     youtubeAPI(randomBeer.name);
     placesAPI();
->>>>>>> 7635032f35292fc3743bec1b426894261e8c24a7
 }
 
 //**  Beer Roulette APIs   
@@ -258,7 +250,7 @@ function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN
 }
 
 callingStoreTypesOfBeer(); ////GETTING THOSE BEERS IN THAT ARRAY FOR ERROR HANDLING
-console.log(typesBeer);
+
 function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE wikipediaApiSummary FUNCTION
 {
     wikipediaApiSummary(parameterRender1, parameterRender2);
@@ -276,9 +268,6 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
 
 }
 
-var practiceBeer = "sol";
-
-findingDescription(`${practiceBeer} beer`, "Lager"); //// CALLING FUNCTION FOR PRACTICE
 
 var practiceBeer = "blue moon";
 
