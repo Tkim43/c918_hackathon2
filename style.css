@@ -58,7 +58,7 @@ body{
 }
 
 /** Modals **/
-.beerModal{
+/* .beerModal{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -71,4 +71,4 @@ body{
 .hide{
     display: none;
     z-index: -2;
-}
+} */
