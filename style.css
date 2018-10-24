@@ -38,6 +38,17 @@ body{
     font-size: 2rem;
     text-align: center;
 }
+
+.bottomHalf{
+    height: 50%;
+    width: 100%;
+}
+.wikipedia{
+    font-size: 1rem;
+
+    border: 1px solid black;
+}
+
 #googleMap {
     height: 70%;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
