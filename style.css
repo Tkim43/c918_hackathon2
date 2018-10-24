@@ -213,7 +213,7 @@
 /** Modals **/
 .backgroundModal{
     position: absolute;
-    height: 100%;
+    height: 102vh;
     width: 100%;
     background-image: url("images/triangle.jpg");
     background-repeat: repeat;
@@ -224,7 +224,7 @@
 }
 .infoModal{
     position: absolute;
-    height: 100%;
+    height: 102vh;
     width: 70%;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
