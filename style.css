@@ -174,9 +174,10 @@ body{
 
 .youtubeDiv{
     display: inline-block;
-    position: relative;
+    position: absolute;
+    top: 58%;
+    left: 4%;
 }
-
 #googleMap {
     height: 70%;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
