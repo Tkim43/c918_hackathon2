@@ -1,7 +1,6 @@
 $(document).ready(initializeApp);
 
 function initializeApp(){
-    youtubeAPI();
     clickHandlers();
     organizeBeerDatabase();
 }
@@ -13,7 +12,7 @@ var beer = {
     malts: [],
     stouts: [],
     nonAlcs: []
-}
+};
 var randomBeer;
 
 
@@ -37,11 +36,17 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
+<<<<<<< HEAD
     // findingDescription();
     // youtubeAPI(randomBeer.name);
     // placesAPI();
     
 
+=======
+    findingDescription();
+    youtubeAPI(randomBeer.name);
+    placesAPI();
+>>>>>>> 7635032f35292fc3743bec1b426894261e8c24a7
 }
 
 //**  Beer Roulette APIs   
@@ -76,7 +81,7 @@ function organizeBeerDatabase(){
     $.ajax(beerDataBase);
 }
 
-function youtubeAPI(){
+function youtubeAPI(name){
     // add beer to whatever the name of the beer is
     var youtubeAjaxObject = {
         'dataType': 'json',
@@ -88,7 +93,7 @@ function youtubeAPI(){
         'data': {
             'part': 'snippet',
             'maxResults': '1',
-            'q': 'corn chips',
+            'q': name + 'beer review',
             'type': 'video',
             'key': 'AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts'
         }
@@ -108,10 +113,10 @@ function playExactVideo(vidID){
 }
 
 // Initialize and add the map
-function initMap() {
+function initMap(lati, longi) {
     // making the map night mode
     var maps = new google.maps.Map(document.getElementById('googleMap'), {
-        center: {lat: 44.0748579, lng: -81.00349039999999},
+        center: {lat: lati, lng: longi},
         zoom: 12,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -200,7 +205,7 @@ function initMap() {
     };
     // creates a marker
     var marker = new google.maps.Marker({
-        position: {lat: 44.0748579, lng: -81.00349039999999},
+        position: {lat: lati, lng: longi},
         map: maps,
         icon: icon
     });
@@ -241,7 +246,7 @@ function wikipediaApiSummary(parameter, short_name){
             }
 
         }
-    }
+    };
     $.ajax(ajaxConfig);
 }
 function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN AN OBJECT SO WE CAN USE THEM FOR ERROR HANDLING
@@ -270,18 +275,24 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
    }
 
 }
-var practiceBeer = "blue moon"
 
-findingDescription(`${practiceBeer} beer`, "lager")     //// CALLING FUNCTION FOR PRACTICE
+var practiceBeer = "sol";
 
-function placesAPI(randomBeer){
+findingDescription(`${practiceBeer} beer`, "Lager"); //// CALLING FUNCTION FOR PRACTICE
+
+var practiceBeer = "blue moon";
+
+findingDescription(`${practiceBeer} beer`, "lager");     //// CALLING FUNCTION FOR PRACTICE
+
+
+function placesAPI(){
     var theData = {
         key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
-        input: "Neustadt Springs Brewery",
+        input: randomBeer.brewer,
         // randomBeer.brewer,
         inputtype: "textquery",
         fields: "photos,formatted_address,name,rating,opening_hours,geometry",
-    }
+    };
     var placesAPIinput = {
     dataType: "json",
     url: "http://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
@@ -290,14 +301,15 @@ function placesAPI(randomBeer){
     data: theData,
         success: function(response){
             var placesAPIData = response;
-            var latCoord = placesAPIData.candidates[0].geometry.location.lat
-            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng
-            
+
+            var latCoord = placesAPIData.candidates[0].geometry.location.lat;
+            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
-            console.log("longtitude: "+ lngCoord)
-            // findOnMap();
+            console.log("longtitude: "+ lngCoord);
+            // I need to call my function here after you get the lat and long
+            initMap(latCoord, lngCoord);
         },
-    }
+    };
     $.ajax(placesAPIinput);
 }
 
