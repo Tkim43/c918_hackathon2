@@ -18,9 +18,11 @@ var randomBeer;
 
 function clickHandlers(){
     $('#beerSelector').submit(beerSelectorCheckbox);
+    $('#closebtn').click(hideModal);
 }
 
 function beerSelectorCheckbox(event){
+    console.log("SUPPPP");
     event.preventDefault();
     var beerSelected=[];
     $("input:checked").each(function(index, element) {
@@ -38,6 +40,7 @@ function randomlySelectBeer( beerArray ){
     randomBeer = beer[beerType][randomBeerIndex];
     showModal();
     populateBeerInfo(`${randomBeer.name}`,`${randomBeer.price}`,`${randomBeer.abv}`,`${randomBeer.image_url}`);
+    console.log(randomBeer);
     findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
     youtubeAPI(randomBeer.name);
     placesAPI();
@@ -285,13 +288,18 @@ function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES N
 }
 function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION(FROM WIKI) WE GOT FROM wikipediaApiSummary FUNCTION, PARAM2 IS ONE OF 5 BEERS, DEFAULT IF NO DESCRIPTION FROM WIKIPEDIA
 
-    if (!param1){                       ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
+    if (!param1 || randomBeer.brewer === "Brick" || randomBeer.brewer === "Bavaria"){                       ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
        param2 = `${param2}2`;               ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
         var errorRenderingFromTypesBeer = typesBeer[param2];
-       $('.wikipedia').text(errorRenderingFromTypesBeer);
+        $('.encaseOfNoWiki').removeClass('displayingNone');
+       $('.encaseOfNoWiki').text(`${randomBeer.name} is a ${randomBeer.type} originally from ${randomBeer.country}. ${randomBeer.name} is brewed at ${randomBeer.brewer}. This beer has an alcohol percentage of ${randomBeer.abv}.`);
+        $('.wikipedia').text(`MORE INFO: ${errorRenderingFromTypesBeer}`);
    }
+
    else{
        $('.wikipedia').text(param1);
+        $('.encaseOfNoWiki').addClass('displayingNone');
+
    }
 
 }
@@ -346,4 +354,3 @@ function placesAPI(){
     };
     $.ajax(placesAPIinput);
 }
-
