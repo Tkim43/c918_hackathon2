@@ -13,7 +13,7 @@ var beer = {
     malts: [],
     stouts: [],
     nonAlcs: []
-}
+};
 var randomBeer;
 
 
@@ -83,7 +83,7 @@ function youtubeAPI(){
         'data': {
             'part': 'snippet',
             'maxResults': '1',
-            'q': 'corn chips',
+            'q': 'beer review',
             'type': 'video',
             'key': 'AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts'
         }
