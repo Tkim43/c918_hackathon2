@@ -2,58 +2,43 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
-
+    background-image: url("images/triangle.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 .topHalf1{
     height: 50%;
     width: 100%;
 }
 .imgDiv1{
-    background-image: url("images/beerLiquid.jpg");
     width: 100%;
     height: 100%;
     background-position: bottom left;
 }
 .titleDiv{
     border: 1px black solid;
-    font-size: 2rem;
+    font-size: 4rem;
+    font-family: 'Charmonman', cursive;
     text-align: center;
 }
-.beers{
-    display:flex;
-    justify-content: space-evenly;
-
+.nav{
+    height: 10%;
+    width: 100%;
+    text-align: center;
 }
-.stoutDiv{
+.checkbox{
     display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.aleDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.lagerDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.maltDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
-}
-.nonAlcoholicDiv{
-    display: inline-block;
-    border: 1px black solid;
-    font-size: 2rem;
+    text-align: center;
+    font-family: 'Domine', serif;
+    font-size: 2em;
 }
 .submitDiv{
     border: 1px black solid;
     font-size: 2rem;
     text-align: center;
 }
+
 .bottomHalf{
     height: 50%;
     width: 100%;
@@ -62,7 +47,13 @@ body{
     font-size: 1rem;
 
     border: 1px solid black;
+}
 
-
-
+#googleMap {
+    height: 70%;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
+.randomizeButton{
+    width: 20%;
+    height: 100%;
 }
