@@ -88,6 +88,7 @@ function organizeBeerDatabase(){
                     beer.nonAlcs.push(beerList[i]);
                 }
             }
+            $("#randomize").prop("disabled", false);
         },
         error: err => {
             console.log("error", err);  
@@ -118,7 +119,14 @@ function youtubeAPI(name){
     };
 
     function getData(responseData){
-        var video = responseData.items[0].id.videoId;
+        console.log("Youtube Response Data: ",responseData)
+        var video = null;
+        if(responseData.items.length === 0){
+            video = "qFJFoH6zk5I";
+            playExactVideo(video);
+            return;
+        }
+        video = responseData.items[0].id.videoId;
         playExactVideo(video);
     }
     $.ajax(youtubeAjaxObject);
@@ -312,9 +320,33 @@ function placesAPI(){
     error: err => console.log(err),
     data: theData,
         success: function(response){
-            console.log(response);
-            var latCoord = response.candidates[0].geometry.location.lat;
-            var lngCoord =  response.candidates[0].geometry.location.lng;
+            var latCoord = null;
+            var lngCoord = null;
+            var placesAPIData = response;
+            console.log("Success happened ", placesAPIData);
+            console.log(randomBeer.brewer);
+            console.log(randomBeer.country);
+            if (response.status === "ZERO_RESULTS"){
+                if(randomBeer.country === "Canada"){
+                    latCoord = 45.425507;
+                    lngCoord = -75.700233;
+                    initMap(latCoord, lngCoord);
+                    return;
+                } else if (randomBeer.country === "United States"){
+                    latCoord = 38.897957;
+                    lngCoord = -77.036560;
+                    initMap(latCoord, lngCoord);
+                    return;
+                } else if (randomBeer.country === "United Kingdom"){
+                    latCoord = 51.510357;
+                    lngCoord = -0.116773;
+                    initMap(latCoord, lngCoord);
+                    return;
+                }
+            }
+// Estonia, Czech Republic, Turkey
+            latCoord = response.candidates[0].geometry.location.lat;
+            lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord);
             initMap(latCoord, lngCoord);
