@@ -205,7 +205,7 @@ function initMap() {
 
 var typesBeer = {};
 
-function settings(parameter, short_name){
+function wikipediaApiSummary(parameter, short_name){
     var ajaxConfig= {
         "async": true,
         "crossDomain": true,
@@ -236,27 +236,27 @@ function settings(parameter, short_name){
             }
 
         }
-    }
+    };
     $.ajax(ajaxConfig);
 }
 function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN AN OBJECT SO WE CAN USE THEM FOR ERROR HANDLING
-    settings("ale beer", "Ale2");
-    settings("stout beer", "Stout2");
-    settings("lager beer", "Lager2");
-    settings("malt beer", "Malt2");
-    settings("Non-alcoholic drink", "Non-Alcoholic Beer2");
+    wikipediaApiSummary("ale beer", "Ale2");
+    wikipediaApiSummary("stout beer", "Stout2");
+    wikipediaApiSummary("lager beer", "Lager2");
+    wikipediaApiSummary("malt beer", "Malt2");
+    wikipediaApiSummary("Non-alcoholic drink", "Non-Alcoholic Beer2");
 }
 
 callingStoreTypesOfBeer(); ////GETTING THOSE BEERS IN THAT ARRAY FOR ERROR HANDLING
 console.log(typesBeer);
-function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE SETTINGS FUNCTION
+function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE wikipediaApiSummary FUNCTION
 {
-    settings(parameterRender1, parameterRender2);
+    wikipediaApiSummary(parameterRender1, parameterRender2);
 }
-function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION(FROM WIKI) WE GOT FROM SETTINGS FUNCTION, PARAM2 IS ONE OF 5 BEERS, DEFAULT IF NO DESCRIPTION FROM WIKIPEDIA
+function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION(FROM WIKI) WE GOT FROM wikipediaApiSummary FUNCTION, PARAM2 IS ONE OF 5 BEERS, DEFAULT IF NO DESCRIPTION FROM WIKIPEDIA
 
-    if (!param1){ ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
-       param2 = `${param2}2`; ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
+    if (!param1){                       ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
+       param2 = `${param2}2`;               ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
         var errorRenderingFromTypesBeer = typesBeer[param2];
        $('.wikipedia').text(errorRenderingFromTypesBeer);
    }
@@ -265,9 +265,15 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
    }
 
 }
+
 var practiceBeer = "sol";
 
 findingDescription(`${practiceBeer} beer`, "Lager"); //// CALLING FUNCTION FOR PRACTICE
+
+var practiceBeer = "blue moon";
+
+findingDescription(`${practiceBeer} beer`, "lager");     //// CALLING FUNCTION FOR PRACTICE
+
 
 function placesAPI(randomBeer){
     var theData = {
@@ -285,8 +291,8 @@ function placesAPI(randomBeer){
     data: theData,
         success: function(response){
             var placesAPIData = response;
-            var latCoord = placesAPIData.candidates[0].geometry.location.lat
-            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng
+            var latCoord = placesAPIData.candidates[0].geometry.location.lat;
+            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
             console.log("longtitude: "+ lngCoord)
             // findOnMap();
