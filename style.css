@@ -103,14 +103,14 @@ body{
 }
 
 .roulette{
-    position: relative;
+    position: absolute;
     height: 20vh;
     width: 10vw;
     background-image: url(images/roulette.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 25%;
+    top: 92%;
     left: 29%;
     cursor: pointer;
     background-color: transparent;
