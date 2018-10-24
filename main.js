@@ -202,6 +202,7 @@ function initMap() {
 }
 
 
+
 var typesBeer = {};
 
 function settings(parameter, short_name){
@@ -267,3 +268,30 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
 var practiceBeer = "sol"
 
 findingDescription(`${practiceBeer} beer`, "Lager") //// CALLING FUNCTION FOR PRACTICE
+
+function placesAPI(randomBeer){
+    var theData = {
+        key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
+        input: "Neustadt Springs Brewery",
+        // randomBeer.brewer,
+        inputtype: "textquery",
+        fields: "photos,formatted_address,name,rating,opening_hours,geometry",
+    }
+    var placesAPIinput = {
+    dataType: "json",
+    url: "http://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
+    method: "GET",
+    error: err => console.log(err),
+    data: theData,
+        success: function(response){
+            var placesAPIData = response;
+            var latCoord = placesAPIData.candidates[0].geometry.location.lat
+            var lngCoord =  placesAPIData.candidates[0].geometry.location.lng
+            console.log("latitude: "+ latCoord);
+            console.log("longtitude: "+ lngCoord)
+            // findOnMap();
+        },
+    }
+    $.ajax(placesAPIinput);
+}
+
