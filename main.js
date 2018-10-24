@@ -293,7 +293,7 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
         var errorRenderingFromTypesBeer = typesBeer[param2];
         $('.encaseOfNoWiki').removeClass('displayingNone');
        $('.encaseOfNoWiki').text(`${randomBeer.name} is a ${randomBeer.type} originally from ${randomBeer.country}. ${randomBeer.name} is brewed at ${randomBeer.brewer}. This beer has an alcohol percentage of ${randomBeer.abv}.`);
-        $('.wikipedia').text(`MORE INFO: ${errorRenderingFromTypesBeer}`);
+        $('.wikipedia').text(`More Information: ${errorRenderingFromTypesBeer}`);
    }
 
    else{
