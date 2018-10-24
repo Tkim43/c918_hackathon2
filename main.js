@@ -297,7 +297,7 @@ function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION
    }
 
    else{
-       $('.wikipedia').text(param1);
+       $('.wikipedia').text(`Information About The Brewery: ${param1}`);
         $('.encaseOfNoWiki').addClass('displayingNone');
 
    }
