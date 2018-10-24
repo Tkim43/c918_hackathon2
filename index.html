@@ -12,6 +12,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Domine|Lobster|Oxygen|Charmonman" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Teko:400,500,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Leckerli+One|Pacifico|Rock+Salt" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -30,34 +31,50 @@
             </div>
             <!-- <div id="googleMap"></div> -->
         </div>
-        <div class="topHalf1">
-            <div class="imgDiv1 ">
+        <div class="container">
                     <div class="titleDiv">
                         Beer Roulette
                     </div>
-                    <div class="nav">
                         <form id="beerSelector">
                             <div class="checkbox">
-                                <label><input type="checkbox" value="stouts" class="stouts">Stouts</label>
+                                <label>
+
+                                    <input type="checkbox" value="stouts" class="stouts">
+                                    <span class="checkmark"></span>
+                                    <span>Stouts</span>
+                                </label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="ales" class="ales">Ales</label>
+                                <label>
+                                    <input type="checkbox" value="ales" class="ales">
+                                    <span class="checkmark"></span>
+                                    <span>Ales</span>
+                                </label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="lagers" class="lagers">Lagers</label>
+                                <label>
+                                    <input type="checkbox" value="lagers" class="lagers">
+                                    <span class="checkmark"></span>
+                                    <span>Lagers</span>
+                                </label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="malts" class="malts">Malts</label>
+                                <label>
+                                    <input type="checkbox" value="malts" class="malts">
+                                    <span class="checkmark"></span>
+                                    <span>Malts</span>
+                                </label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="nonAlcs" class="nonAlcs">Non-Alcoholics</label>
+                                <label>
+                                    <input type="checkbox" value="nonAlcs" class="nonAlcs">
+                                    <span class="checkmark"></span>
+                                    <span>Non-Alcoholics</span>
+                                </label>
                             </div>
                             <input type="submit" value="Randomize" class="randomizeButton btn btn-default btn-lg">
                         </form>
-
-                    </div>
                 <div id="map"></div>
-            </div>
         </div>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts"></script>
