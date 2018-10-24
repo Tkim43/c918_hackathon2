@@ -75,7 +75,8 @@ body{
 
 .checkmark:after {
     content: "";
-    position: absolute;
+    position: relative;
+    bottom: 50%;
     display: none;
 }
 
@@ -85,7 +86,7 @@ body{
 
 .checkbox label .checkmark:after {
     left: 8px;
-    top: 30px;
+    top: 5px;
     width: 5px;
     height: 10px;
     border: solid white;
