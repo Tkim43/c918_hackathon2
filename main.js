@@ -112,7 +112,7 @@ function youtubeAPI(name){
         'data': {
             'part': 'snippet',
             'maxResults': '1',
-            'q': name + 'beer review',
+            'q': name + ' beer review',
             'type': 'video',
             'key': 'AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts'
         }
