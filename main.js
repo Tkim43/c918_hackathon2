@@ -36,17 +36,9 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
-<<<<<<< HEAD
-    // findingDescription();
-    // youtubeAPI(randomBeer.name);
-    // placesAPI();
-    
-
-=======
     findingDescription();
     youtubeAPI(randomBeer.name);
     placesAPI();
->>>>>>> 7635032f35292fc3743bec1b426894261e8c24a7
 }
 
 //**  Beer Roulette APIs   
