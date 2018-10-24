@@ -36,9 +36,33 @@ function randomlySelectBeer( beerArray ){
     var beerType= beerArray[randomBeerType];
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
+    showModal();
+    populateBeerInfo(`${randomBeer.name}`,`${randomBeer.price}`,`${randomBeer.abv}`,`${randomBeer.image_url}`);
     findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
     youtubeAPI(randomBeer.name);
     placesAPI();
+}
+
+function populateBeerInfo(name, price, abv, img){
+    $('#name').text(name);
+    $('#price').text(price);
+    $('#abv').text(abv);
+    $('.beerImage').css('background-image', `url("${img}")`);
+}
+
+//** Modal Funcationality
+
+function showModal(){
+    $('.backgroundModal').removeClass('displaynone');
+    $('.infoModal').removeClass('displaynone');
+    $('.backgroundModal').addClass('showBackgroundModal');
+    $('.infoModal').addClass('showInfoModal');
+}
+function hideModal(){
+    $('.infoModal').removeClass('showInfoModal');
+    $('.backgroundModal').removeClass('showBackgroundModal');
+    $('.infoModal').addClass('hidden');
+    $('.backgroundModal').addClass('hiddenBackground');
 }
 
 //**  Beer Roulette APIs   

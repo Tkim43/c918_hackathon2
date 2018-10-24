@@ -45,10 +45,9 @@ body{
 }
 .wikipedia{
     font-size: 1rem;
-
-    border: 1px solid black;
+    position: relative;
+    top: 4%;
 }
-
 #googleMap {
     height: 70%;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
@@ -59,13 +58,12 @@ body{
 }
 
 /** Modals **/
-/* .beerModal{
+.backgroundModal{
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 3;
     background-image: url("images/triangle.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
     opacity: 1;
@@ -73,9 +71,8 @@ body{
 }
 .infoModal{
     position: absolute;
-    height: 100%;
+    height: 130%;
     width: 70%;
-    z-index: 4;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,7 +80,53 @@ body{
     left: 15%;
     text-align: center;
 }
-.hide{
+.beerImage{
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    border: 4px solid rgb(187, 168, 59);
+    height: 190px;
+    width: 190px;
+    top: 5%;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.beerInfo{
+    position: relative;
+    top:5%;
+}
+.infoModal p{
+    font-size: 3vmin;
+    top: 5%;
+    font-family: 'Teko';
+    font-weight: 500;
+    line-height: 8px;
+}
+#dollarSign{
+    color:rgb(187, 168, 59);
+}
+.displaynone{
     display: none;
-    z-index: -2;
-} */
+}
+.hidden {
+    opacity: 0;
+    animation: .6s fadeout linear 0s 1;
+    z-index: -1;
+}.hiddenBackground {
+    opacity: 0;
+    animation: .6s fadeoutbackground linear 0s 1;
+    z-index: -1;
+}
+.showBackgroundModal{
+    opacity: 1;
+    animation: .6s fadeinbackground linear 0s 1;
+    z-index: 3;
+}
+.showInfoModal{
+    opacity: 1;
+    animation: .6s fadein linear 0s 1;
+    z-index: 4;
+}
