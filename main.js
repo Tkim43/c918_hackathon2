@@ -309,7 +309,6 @@ function placesAPI(){
     var theData = {
         key: "AIzaSyAz5xq3SxTLX3I7l9jiA28_gfzQ05uB5ts",
         input: randomBeer.brewer,
-        // randomBeer.brewer,
         inputtype: "textquery",
         fields: "photos,formatted_address,name,rating,opening_hours,geometry",
     };
@@ -344,7 +343,7 @@ function placesAPI(){
                     return;
                 }
             }
-// Estonia, Czech Republic, Turkey
+// Estonia, Czech Republic, Turkey (Countries to Add)
             latCoord = response.candidates[0].geometry.location.lat;
             lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
