@@ -157,7 +157,8 @@
 
 #player{
     position: relative;
-    top: 7%;
+    height: 100%;
+    width: 100%;
 }
 
 .containerWiki{
@@ -174,15 +175,33 @@
     top: 4%;
 }
 
+.vidMap{
+    height: 32%;
+    width: 100%;
+    padding-top: 8%;
+}
+
 .youtubeDiv{
+    position: relative;
+    vertical-align: top;
     display: inline-block;
+    width: 49%;
+    height: 87%;
+    transform: translateY(-25%);
+    padding-top: 41px;
+
+    /* display: inline-block;
     position: absolute;
     top: 58%;
-    left: 4%;
+    left: 4%; */
 }
 #googleMap {
-    height: 50%;  
-    width: 50%;  
+    bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    width: 47%;
+    display: inline-block;
+    height: 87%;
 }
 #closebtn{
     position: absolute;
