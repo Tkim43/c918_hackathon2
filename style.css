@@ -1,56 +1,224 @@
-body{
+ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     color: white;
+    cursor: pointer;
+    overflow: hidden;
 }
-.topHalf1{
-    height: 50%;
-    width: 100%;
-}
-.imgDiv1{
-    width: 100%;
+.container{
     height: 100%;
-    background-position: bottom left;
+    width: 100%;
 }
 .titleDiv{
-    font-size: 4rem;
-    font-family: 'Charmonman', cursive;
+    font-size: 11.5vmin;
+    font-family: 'Pacifico', cursive;
     text-align: center;
+    position: relative;
+    top: 10%;
 }
-.nav{
-    height: 10%;
+.border{
+    height: 10px;
+    width: 10px;
+    background-color: darkgoldenrod;
+    animation-name: lineGrow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes lineGrow {
+0% {
+    width: 10px;
+}
+100% {
     width: 100%;
-    text-align: center;
+}
 }
 .checkbox{
-    display: inline-block;
+    font-family: 'Rock Salt', cursive;
+    font-size: 3.7vmin;
     text-align: center;
-    font-family: 'Domine', serif;
-    font-size: 2em;
 }
+.checkbox:hover{
+    color: darkgoldenrod;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#beerSelector{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    width: 35%;
+    height: 30%;
+    margin: 0 auto;
+    top: 13%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label:hover input  ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox label input:checked ~ .checkmark {
+    background-color: #23527c;
+}
+
+.checkmark:after {
+    content: "";
+    position: relative;
+    bottom: 50%;
+    display: none;
+}
+
+.checkbox label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox label .checkmark:after {
+    left: 8px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Hide the browser's default checkbox */
+.checkbox input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+}
+
+.checkmark {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
 .submitDiv{
     border: 1px black solid;
     font-size: 2rem;
     text-align: center;
 }
 
+.roulette{
+    position: absolute;
+    height: 20vh;
+    width: 10vw;
+    background-image: url(images/roulette.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 92%;
+    left: 29%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    user-select: none;
+}
+
+.roulette:focus {
+    outline-width: 0;
+}
+.roulette:hover {
+    transform: rotateZ(720deg);
+    transition: all 3s ease-out;
+}
+.roulette input {
+    position: absolute;
+    height: 20vh;
+    width: 10vw;
+    border-radius: 50px;
+    visibility: hidden;
+}
 .bottomHalf{
     height: 50%;
     width: 100%;
 }
-.wikipedia{
-    font-size: 1rem;
 
-    border: 1px solid black;
+#player{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.containerWiki{
+    overflow: auto;
+    font-size: 2.2vmin;
+    height: 11%;
+    background: black;
+    box-sizing: border-box;
+    opacity: 0.4;
+    margin: 0;
+    border-radius: 3%;
+    position: relative;
+}
+.moreInfoWiki{
+    font-size: 2.4vmin;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.vidMap{
+    height: 46%;
+    position: relative;
+    top: 3%;
+    width: 100%;
+}
+
+.youtubeDiv{
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 49.5%;
+    height: 87%;
+    float: left;
+
 }
 
 #googleMap {
-    height: 70%;  /* The height is 400 pixels */
-    width: 100%;  /* The width is the width of the web page */
+    position: relative;
+    overflow: hidden;
+    width: 49.5%;
+    display: inline-block;
+    height: 87%;
+    float: right;
+}
+#closebtn{
+   position: absolute;
+    height: 4%;
+    width: 4%;
+    top: 3%;
+    right: 3%;
+    background-image: url(images/closebtn.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+#closebtn:hover{
+    transform: scale(1.2);
 }
 .randomizeButton{
     width: 20%;
@@ -58,17 +226,80 @@ body{
 }
 
 /** Modals **/
-.beerModal{
+.backgroundModal{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-image: url("images/triangle.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    filter: blur(10px);
+}
+.infoModal{
     position: absolute;
     height: 100%;
-    width: 100%;
-    z-index: 4;
+    width: 70%;
     background-image: url("images/triangle.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: .7;
+    background-position: center;
+    left: 15%;
+    text-align: center;
 }
-.hide{
+.beerImage{
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    border: 4px solid rgb(187, 168, 59);
+    height: 27%;
+    width: 20%;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.beerInfo{
+    position: relative;
+    height: 15%;
+}
+.infoModal p{
+    font-size: 3vmin;
+    font-family: 'Teko';
+    font-weight: 500;
+    line-height: 8px;
+}
+.beerInfo p {
+    margin: 0;
+    line-height: 150%;
+}
+#dollarSign{
+    color:rgb(187, 168, 59);
+}
+.displaynone{
     display: none;
-    z-index: -2;
+}
+.hidden {
+    opacity: 0;
+    animation: .6s fadeout linear 0s 1;
+    z-index: -1;
+}.hiddenBackground {
+    opacity: 0;
+    animation: .6s fadeoutbackground linear 0s 1;
+    z-index: -1;
+}
+.showBackgroundModal{
+    opacity: 1;
+    animation: .6s fadeinbackground linear 0s 1;
+    z-index: 3;
+}
+.showInfoModal{
+    opacity: 1;
+    animation: .6s fadein linear 0s 1;
+    z-index: 4;
+}
+.displayingNone{
+    display: none;
 }
