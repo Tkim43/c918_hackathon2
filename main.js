@@ -224,8 +224,8 @@ function initMap(lati, longi) {
         ]
     });
     var icon = {
-        url: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
-        scaledSize: new google.maps.Size(60,60)
+        url: 'images/beer-icon-googlemaps.png',
+        scaledSize: new google.maps.Size(25,25)
     };
     var marker = new google.maps.Marker({
         position: {lat: lati, lng: longi},
@@ -315,7 +315,7 @@ function placesAPI(){
     };
     var placesAPIinput = {
     dataType: "json",
-    url: "http://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
+    url: "proxies/googleplaces.php",
     method: "GET",
     error: err => console.log(err),
     data: theData,
