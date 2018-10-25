@@ -22,7 +22,6 @@ function clickHandlers(){
 }
 
 function beerSelectorCheckbox(event){
-    console.log("SUPPPP");
     event.preventDefault();
     var beerSelected=[];
     $("input:checked").each(function(index, element) {
@@ -224,8 +223,8 @@ function initMap(lati, longi) {
         ]
     });
     var icon = {
-        url: 'images/beer-icon-googlemaps.png',
-        scaledSize: new google.maps.Size(25,25)
+        url: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
+        scaledSize: new google.maps.Size(60,60)
     };
     var marker = new google.maps.Marker({
         position: {lat: lati, lng: longi},
@@ -314,7 +313,7 @@ function placesAPI(){
     };
     var placesAPIinput = {
     dataType: "json",
-    url: "proxies/googleplaces.php",
+    url: "http://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
     method: "GET",
     error: err => console.log(err),
     data: theData,
