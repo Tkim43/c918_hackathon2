@@ -3,6 +3,7 @@ $(document).ready(initializeApp);
 function initializeApp(){
     clickHandlers();
     organizeBeerDatabase();
+    callingStoreTypesOfBeer(); 
 }
 
 //**   Globals
@@ -38,9 +39,9 @@ function randomlySelectBeer( beerArray ){
     var randomBeerIndex = Math.floor(Math.random() * beer[beerType].length);
     randomBeer = beer[beerType][randomBeerIndex];
     showModal();
-    populateBeerInfo(`${randomBeer.name}`,`${randomBeer.price}`,`${randomBeer.abv}`,`${randomBeer.image_url}`);
+    populateBeerInfo(randomBeer.name,randomBeer.price,randomBeer.abv,randomBeer.image_url);
     console.log(randomBeer);
-    findingDescription(`${randomBeer.brewer}`, `${randomBeer.type}`);
+    findingDescription(randomBeer.brewer, randomBeer.type);
     youtubeAPI(randomBeer.name);
     placesAPI();
 }
@@ -271,7 +272,7 @@ function wikipediaApiSummary(parameter, short_name){
     };
     $.ajax(ajaxConfig);
 }
-function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN AN OBJECT SO WE CAN USE THEM FOR ERROR HANDLING
+function callingStoreTypesOfBeer(){ 
     wikipediaApiSummary("ale beer", "Ale2");
     wikipediaApiSummary("stout beer", "Stout2");
     wikipediaApiSummary("lager beer", "Lager2");
@@ -279,20 +280,19 @@ function callingStoreTypesOfBeer(){ ///////I HAVE STORED ALL 5 TYPES OF BEERS IN
     wikipediaApiSummary("Non-alcoholic drink", "Non-Alcoholic Beer2");
 }
 
-callingStoreTypesOfBeer(); ////GETTING THOSE BEERS IN THAT ARRAY FOR ERROR HANDLING
-
-function findingDescription(parameterRender1, parameterRender2) ///PARAM TAKES NAME OF BEER AND PASSES TO THE wikipediaApiSummary FUNCTION
+function findingDescription(parameterRender1, parameterRender2) 
 {
     wikipediaApiSummary(parameterRender1, parameterRender2);
 }
-function renderingDescriptionOnDom(param1, param2){ ///PARAM1 IS THE DESCRIPTION(FROM WIKI) WE GOT FROM wikipediaApiSummary FUNCTION, PARAM2 IS ONE OF 5 BEERS, DEFAULT IF NO DESCRIPTION FROM WIKIPEDIA
 
-    if (!param1 || randomBeer.brewer === "Brick" || randomBeer.brewer === "Bavaria"){                       ///IF PARAM1 IS UNDEFINED (IT WOULD BE UNDEFINED IF THERE IS NO PAGE OR IF THE PAGE DOES NOT GET LOADED WHEN WE DO THE API CALL
-       param2 = `${param2}2`;               ///HAD TO DO THIS BECAUSE param2 ONLY EQUALS ex: ale AND WE NEED IT TO HAVE A 2 AT THE END TO USE IT AS A KEY VALUE PAIR FROM TYPES BEER OBJ
+function renderingDescriptionOnDom(param1, param2){ 
+
+    if (!param1 || randomBeer.brewer === "Brick" || randomBeer.brewer === "Bavaria"){                
+       param2 = `${param2}2`;              
         var errorRenderingFromTypesBeer = typesBeer[param2];
         $('.encaseOfNoWiki').removeClass('displayingNone');
        $('.encaseOfNoWiki').text(`${randomBeer.name} is a ${randomBeer.type} originally from ${randomBeer.country}. ${randomBeer.name} is brewed at ${randomBeer.brewer}. This beer has an alcohol percentage of ${randomBeer.abv}.`);
-        $('.wikipedia').html(`<span class="moreInfoWiki">More Information:</span> ${errorRenderingFromTypesBeer}`);
+        $('.wikipedia').append(`<span class="moreInfoWiki">More Information:</span> ${errorRenderingFromTypesBeer}`);
    }
 
    else{
@@ -342,7 +342,6 @@ function placesAPI(){
                     return;
                 }
             }
-// Estonia, Czech Republic, Turkey (Countries to Add)
             latCoord = response.candidates[0].geometry.location.lat;
             lngCoord =  response.candidates[0].geometry.location.lng;
             console.log("latitude: "+ latCoord);
