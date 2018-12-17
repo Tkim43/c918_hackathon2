@@ -9,6 +9,7 @@
     color: white;
     cursor: pointer;
     overflow: hidden;
+    position: relative;
 }
 .container{
     height: 100%;
@@ -40,7 +41,7 @@
 }
 .checkbox{
     font-family: 'Rock Salt', cursive;
-    font-size: 3.7vmin;
+    font-size: 2.3em;
     text-align: center;
 }
 .checkbox:hover{
@@ -122,15 +123,16 @@
 }
 
 .roulette{
-    position: absolute;
-    height: 20vh;
-    width: 10vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 8%;
+    height: 90%;
+    width: 90%;
     background-image: url(images/roulette.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 92%;
-    left: 29%;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -165,13 +167,12 @@
 .containerWiki{
     overflow: auto;
     font-size: 2.2vmin;
+    color: white;
     height: 11%;
-    background: black;
-    box-sizing: border-box;
-    opacity: 0.4;
     margin: 0;
-    border-radius: 3%;
+    border: box-sizing;
     position: relative;
+    font-family: sans-serif
 }
 .moreInfoWiki{
     font-size: 2.4vmin;
@@ -303,3 +304,43 @@
 .displayingNone{
     display: none;
 }
+
+@media only screen and (max-width: 1080px) {
+    #randomize {
+      width: 70%;
+      height: 70%;
+    }
+    .checkbox{
+        font-size: 1.3em;
+    }
+  }
+
+@media only screen and (max-width: 635px) {
+    #non-alc-container{
+        position: relative;
+        right: 27.3%;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    #non-alc-container{
+        position: relative;
+        right: 11.2%;
+    }
+    .beerImage{
+        width: 60%;
+    }
+    .containerWiki{
+        font-size: 1em;
+        height: 20%;
+    }
+    .beerInfo p{
+        font-size: 1.3em;
+    }
+    #closebtn{
+        width: 10%;
+        height: 10%;
+    }
+
+
+  }
