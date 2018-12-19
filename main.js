@@ -352,12 +352,12 @@ function placesAPI(){
     $.ajax(placesAPIinput);
 }
 
-function displayContent(event, media) {
-    var i, tabcontent, tablinks;
-    debugger;
+function displayContent(media) {
+    var tabcontent, tablinks;
     console.log("this gets called")
+    console.log("this is the event", event.currentTarget)
     tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
+    for (var i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
