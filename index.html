@@ -31,10 +31,14 @@
                 <div class="wikipedia"></div>
             </div>
         <div class="vidMap">
-            <div class="youtubeDiv">
+                <div class="tab">
+                    <button class="tablinks" id="defaultOpen" onclick="displayContent('video')" >Video</button>
+                    <button class="tablinks" onclick="displayContent('googleMap')">Map</button>
+                 </div>
+            <div id = "video" class="youtubeDiv tabcontent">
                 <iframe id="player" type="text/html" src="" frameborder="0"></iframe>
             </div>
-            <div id="googleMap"></div>
+            <div class="tabcontent" id="googleMap"></div>
         </div>
         </div>
         <div class="container">
@@ -73,10 +77,10 @@
                                 </label>
                             </div>
                             <div class="checkbox">
-                                <label>
+                                <label id=non-alc-container>
                                     <input type="checkbox" value="nonAlcs" class="nonAlcs">
                                     <span class="checkmark"></span>
-                                    <span>Non-Alcoholics</span>
+                                    <span id="non-alc">Non-Alcoholics</span>
                                 </label>
                             </div>
 
