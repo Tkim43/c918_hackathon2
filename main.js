@@ -351,3 +351,19 @@ function placesAPI(){
     };
     $.ajax(placesAPIinput);
 }
+
+function displayContent(media) {
+    var tabcontent, tablinks;
+    console.log("this gets called")
+    console.log("this is the event", event.currentTarget)
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(media).style.display = "block";
+    event.currentTarget.className += " active";
+  }
