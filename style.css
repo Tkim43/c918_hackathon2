@@ -323,7 +323,11 @@
         right: 27.3%;
     }
   }
-
+@media only screen and (min-width: 375px){
+    .tab{
+        display:none;
+    }
+}
 @media only screen and (max-width: 375px) {
 #non-alc-container{
     position: relative;
