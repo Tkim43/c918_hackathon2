@@ -25,7 +25,6 @@
 .border{
     position: relative;
     z-index: -1;
-    bottom: 4%;
     height: 10px;
     width: 10px;
     background-color: darkgoldenrod;
@@ -163,6 +162,7 @@
 
 #player{
     position: relative;
+    left: 1%;
     height: 100%;
     width: 100%;
 }
@@ -310,31 +310,115 @@
     display: none;
 }
 
+
+
 @media only screen and (max-width: 1080px) {
     #randomize {
       width: 70%;
       height: 70%;
     }
     .checkbox{
+        font-size: 1.5em;
+    }
+}
+@media only screen and (min-width: 741px){
+    .tab{
+        display:none;
+    }
+}
+@media only screen and (max-width: 740px){
+    .beerImage{
+        width: 40%;
+    }
+    .containerWiki{
+        font-size: 1em;
+        height: 20%;
+    }
+    .beerInfo p{
         font-size: 1.3em;
     }
-  }
+    #closebtn{
+        width: 10%;
+        height: 10%;
+    }
+    .moreInfoWiki{
+        font-size: 1em;
+    }
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+    
+    .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    }
+
+    .tab button:hover {
+    background-color: #ddd;
+    }
+
+    .tab button.active {
+    background-color: #ccc;
+    }
+
+    .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    }
+    .youtubeDiv{
+        display: block;
+        width: 100%;
+        height: 56%;
+        right: 3.4%;
+        bottom: 1.2%;
+
+    }
+    #googleMap{
+    display: block;
+    width: 90.5%;
+    height: 56%;
+    }
+}
+
 
 @media only screen and (max-width: 635px) {
     #non-alc-container{
         position: relative;
         right: 27.3%;
     }
-  }
-@media only screen and (min-width: 376px){
-    .tab{
-        display:none;
-    }
 }
+@media only screen and (max-width: 414px){
+    .border{
+        position: relative;
+        top: 4%;
+    }
+    #non-alc-container{
+        position: relative;
+        right: 13.5%;
+    }
+    .youtubeDiv{
+        right: 5.3%;
+        bottom: 2%;
+    }
+    #googleMap{
+        width: 91.8%;
+        height: 56%;
+    }
+
+}
+
 @media only screen and (max-width: 375px) {
     #non-alc-container{
         position: relative;
-        right: 11.2%;
+        right: 19%;
     }
     .beerImage{
         width: 60%;
@@ -353,56 +437,38 @@
     .moreInfoWiki{
         font-size: 1em;
     }
-    /* Style the tab */
-    .tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-    }
-    
-    /* Style the buttons that are used to open the tab content */
-    .tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    }
-
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-    background-color: #ddd;
-    }
-
-    /* Create an active/current tablink class */
-    .tab button.active {
-    background-color: #ccc;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
-    }
     .youtubeDiv{
-        display: block;
-        width: 100%;
-        height: 56%;
-        right: 5%;
+        right: 5.8%;
         bottom: 2%;
-
-    }
-    #googleMap{
-    display: block;
-    width: 90.5%;
-    height: 56%;
     }
     .border{
         position: relative;
         top: 4%;
         z-index: -1;
     }
+    #googleMap{
+        width: 91%;
+        height: 56%;
+        }
+@media only screen and (min-width: 320px){
+   .checkbox{
+       font-size: 1em;
+   }
+   #non-alc-container{
+       position: relative;
+       right: 14%;
+   }
+   .youtubeDiv{
+    right: 6.5%;
+    bottom: 2.3%;
+    }
+    #googleMap{
+        width: 89.6%;
+        height: 56%;
+    }
+   
+}
+
+
+
 }
