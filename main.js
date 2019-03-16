@@ -313,7 +313,7 @@ function placesAPI(){
     };
     var placesAPIinput = {
     dataType: "json",
-    url: "https://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
+    url: "proxies/googleplaces.php",
     method: "GET",
     error: err => console.log(err),
     data: theData,
