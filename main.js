@@ -134,7 +134,7 @@ function youtubeAPI(name){
 }
 
 function playExactVideo(vidID){
-    $('#player').attr('src','http://www.youtube.com/embed/' + vidID);
+    $('#player').attr('src','https://www.youtube.com/embed/' + vidID);
 }
 
 function initMap(lati, longi) {
@@ -224,7 +224,7 @@ function initMap(lati, longi) {
         ]
     });
     var icon = {
-        url: 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
+        url: 'https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/beer-icon.png',
         scaledSize: new google.maps.Size(60,60)
     };
     var marker = new google.maps.Marker({
@@ -313,7 +313,7 @@ function placesAPI(){
     };
     var placesAPIinput = {
     dataType: "json",
-    url: "http://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
+    url: "https://localhost:8888/c918_hackathon2/proxies/googleplaces.php",
     method: "GET",
     error: err => console.log(err),
     data: theData,
